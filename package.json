@@ -4,7 +4,8 @@
   "description": "Coding exercises",
   "main": "index.js",
   "scripts": {
-    "test": "karma start"
+    "jshint": "./node_modules/.bin/jshint ./app/**/*.js -c ./.jshintrc",
+    "test": "./node_modules/.bin/_mocha --reporter spec ./app/**/*spec.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,8 @@
   },
   "homepage": "https://github.com/saip106/Algorithms-DataStructures",
   "devDependencies": {
-    "karma": "^0.12.24",
-    "karma-jasmine": "^0.1.5",
-    "karma-phantomjs-launcher": "^0.1.4"
+    "istanbul": "^0.3.2",
+    "jshint": "^2.5.6",
+    "mocha": "^2.0.1"
   }
 }
