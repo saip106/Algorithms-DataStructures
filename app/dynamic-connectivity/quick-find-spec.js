@@ -1,19 +1,42 @@
 /*globals describe, it*/
-(function () {
-    'user strict';
+'user strict';
 
-    describe('when finding connectivity between two connected points', function () {
+var quickFind = require('./quick-find'),
+    assert = require('assert');
 
-        var quickFind = require('./quick-find'),
-            assert = require('assert');
+describe('when checking to see if a point is connected to itself', function () {
 
-        it('should find the connection', function () {
-            var result = quickFind.areConnected(1, 5);
-            assert.strictEqual(result, true);
-        });
+    it('should find the connection', function () {
+        var problemSet = new quickFind.ProblemSet();
+        problemSet.initialize(5);
 
+        var result = problemSet.areConnected(0, 0);
+        assert.strictEqual(result, true);
     });
 
-}());
+});
 
+describe('when checking to see if two disconnected points are connected', function () {
 
+    it('should not find the connection', function () {
+        var problemSet = new quickFind.ProblemSet();
+        problemSet.initialize(5);
+
+        var result = problemSet.areConnected(0, 1);
+        assert.strictEqual(result, false);
+    });
+
+});
+
+describe('when checking to see if two connected points are connected', function () {
+
+    it('should find the connection', function () {
+        var problemSet = new quickFind.ProblemSet();
+        problemSet.initialize(5);
+        problemSet.connect(0, 1);
+
+        var result = problemSet.areConnected(0, 1);
+        assert.strictEqual(result, true);
+    });
+
+});
