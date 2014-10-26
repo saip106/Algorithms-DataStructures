@@ -12,18 +12,30 @@ ProblemSet.prototype.initialize = function (numberOfMembers) {
 
 ProblemSet.prototype.connect = function (first, second) {
     //reportCurrentState(this.data, 'before connecting ' + first + ' to ' + second);
-    var oldValue = this.data[first];
-    for (var i = 0; i < this.data.length; i++) {
-        if (this.data[i] === oldValue) {
-            this.data[i] = this.data[second];
+    var firstRoot = rootOf(first, this.data);
+    var secondRoot = rootOf(second, this.data);
+
+    if (firstRoot !== secondRoot) {
+        if (secondRoot === second) {
+            this.data[second] = firstRoot;
         }
+        else if (firstRoot === first) {
+            this.data[first] = secondRoot;
+        }
+
     }
     //reportCurrentState(this.data, 'after connecting ' + first + ' to ' + second);
 };
 
 ProblemSet.prototype.areConnected = function (first, second) {
+    return rootOf(first, this.data) === rootOf(second, this.data);
+};
 
-    return this.data[first] === this.data[second];
+var rootOf = function (index, data) {
+    if (data[index] === index) {
+        return index;
+    }
+    return rootOf(data[index], data);
 };
 
 var reportCurrentState = function (data, message) {
