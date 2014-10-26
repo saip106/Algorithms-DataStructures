@@ -16,11 +16,12 @@ ProblemSet.prototype.connect = function (first, second) {
     var secondRoot = rootOf(second, this.data);
 
     if (firstRoot !== secondRoot) {
-        if (secondRoot === second) {
-            this.data[second] = firstRoot;
-        }
-        else if (firstRoot === first) {
+        if (firstRoot === first) {
             this.data[first] = secondRoot;
+        } else if (secondRoot === second) {
+            this.data[second] = firstRoot;
+        } else {
+            this.data[firstRoot] = secondRoot;
         }
 
     }

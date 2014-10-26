@@ -62,8 +62,8 @@ describe('when checking to see if two connected points are connected', function 
 
         beforeEach(function () {
             problemSet.connect(0, 2);
-            problemSet.connect(1, 4);
-            problemSet.connect(2, 1);
+            problemSet.connect(3, 4);
+            problemSet.connect(2, 3);
         });
 
         it('should find the connection', function () {
@@ -72,8 +72,8 @@ describe('when checking to see if two connected points are connected', function 
 
         it('should maintain the new connections', function () {
             assert.strictEqual(problemSet.areConnected(0, 2), true);
-            assert.strictEqual(problemSet.areConnected(1, 4), true);
-            assert.strictEqual(problemSet.areConnected(2, 1), true);
+            assert.strictEqual(problemSet.areConnected(3, 4), true);
+            assert.strictEqual(problemSet.areConnected(2, 3), true);
         });
 
     });
