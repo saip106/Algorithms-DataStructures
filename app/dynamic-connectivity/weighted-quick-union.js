@@ -2,11 +2,13 @@
 
 function ProblemSet () {
     this.data = [];
+    this.treeSize = [];
 }
 
 ProblemSet.prototype.initialize = function (numberOfMembers) {
     for(var i = 0; i < numberOfMembers; i++) {
         this.data[i] = i;
+        this.treeSize[i] = 1;
     }
 };
 
@@ -15,12 +17,12 @@ ProblemSet.prototype.connect = function (first, second) {
     var firstRoot = rootOf(first, this.data);
     var secondRoot = rootOf(second, this.data);
 
-    if (firstRoot === first) {
+    if (this.treeSize[first] <= this.treeSize[second]) {
         this.data[first] = secondRoot;
-    } else if (secondRoot === second) {
-        this.data[second] = firstRoot;
+        this.treeSize[first] += this.treeSize[second];
     } else {
-        this.data[firstRoot] = secondRoot;
+        this.data[second] = firstRoot;
+        this.treeSize[second] += this.treeSize[first];
     }
     //reportCurrentState(this.data, 'after connecting ' + first + ' to ' + second);
 };
