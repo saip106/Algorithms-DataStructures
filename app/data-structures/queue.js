@@ -15,7 +15,7 @@ Queue.prototype.dequeue = function () {
     if (this.items.length === 0) {
         throw new Error('no items to dequeue');
     }
-    return this.items.splice(0, 1)[0];
+    return this.items.shift();
 };
 
 Queue.prototype.getLength = function () {
