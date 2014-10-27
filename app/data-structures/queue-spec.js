@@ -13,3 +13,23 @@ describe('when dequeuing an item from the queue', function () {
     });
 
 });
+
+describe('when enqueuing a null onto a queue', function () {
+
+    it('should throw an error', function () {
+        var queue = new Queue();
+        assert.throws(function () {
+            queue.enqueue(null);
+        }, Error);
+    });
+
+});
+
+describe('when dequeuing an item from an empty queue', function () {
+
+    it('should throw an error', function () {
+        var queue = new Queue();
+        assert.throws(queue.dequeue, Error);
+    });
+
+});
