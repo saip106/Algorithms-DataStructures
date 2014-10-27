@@ -11,7 +11,6 @@ ProblemSet.prototype.initialize = function (numberOfMembers) {
 };
 
 ProblemSet.prototype.connect = function (first, second) {
-    //reportCurrentState(this.data, 'before connecting ' + first + ' to ' + second);
     var firstRoot = rootOf(first, this.data);
     var secondRoot = rootOf(second, this.data);
 
@@ -22,7 +21,6 @@ ProblemSet.prototype.connect = function (first, second) {
     } else {
         this.data[firstRoot] = secondRoot;
     }
-    //reportCurrentState(this.data, 'after connecting ' + first + ' to ' + second);
 };
 
 ProblemSet.prototype.areConnected = function (first, second) {
@@ -36,13 +34,6 @@ var rootOf = function (index, data) {
         return index;
     }
     return rootOf(data[index], data);
-};
-
-var reportCurrentState = function (data, message) {
-    console.log(message);
-    for(var i = 0; i < data.length; i++) {
-        console.log('index: ' + i + ' value: ' + data[i]);
-    }
 };
 
 module.exports = {
