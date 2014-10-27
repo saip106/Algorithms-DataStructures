@@ -25,11 +25,19 @@ describe('when accessing a stack', function () {
 
 describe('when popping items from a stack', function () {
 
-    it('should get the last inserted element', function () {
+    it('should get the last inserted item', function () {
         var stack = new Stack();
         stack.push('foo');
         stack.push('bar');
         assert.equal(stack.pop(), 'bar');
+    });
+
+    it('should remove the popped item', function () {
+        var stack = new Stack();
+        stack.push('foo');
+        stack.push('bar');
+        assert.equal(stack.pop(), 'bar');
+        assert.equal(stack.pop(), 'foo');
     });
 
 });

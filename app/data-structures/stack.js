@@ -8,7 +8,7 @@ Stack.prototype.pop = function () {
     if (this.items.length === 0) {
         throw new Error('no items to pop');
     }
-    return this.items[this.items.length - 1];
+    return this.items.splice(this.items.length - 1, 1)[0];
 };
 
 Stack.prototype.push = function (item) {
