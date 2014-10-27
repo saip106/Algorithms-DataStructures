@@ -12,3 +12,13 @@ describe('when evaluating a simple expression', function () {
     });
 
 });
+
+describe('when evaluating a nested expression', function () {
+
+    it('should successfully evaluate the expression', function () {
+        var expression = new ArithmeticExpression();
+        var result = expression.evaluate('( 3 + ( 5 * ( 4 + 2 ) ) )');
+        assert.equal(result, 33);
+    });
+
+});

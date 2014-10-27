@@ -18,9 +18,7 @@ ArithmeticExpression.prototype.evaluate = function (expression) {
         } else if (parts[i] === ')') {
             var operator = operatorsStack.pop();
             if (operator === '+') {
-                var first = operandsStack.pop();
-                var second = operandsStack.pop();
-                operandsStack.push(first + second);
+                operandsStack.push(operandsStack.pop() + operandsStack.pop());
             } else if (operator === '*') {
                 operandsStack.push(operandsStack.pop() * operandsStack.pop());
             }
