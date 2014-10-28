@@ -7,6 +7,8 @@ function sort (items) {
                 var temp = items[j];
                 items[j] = items[j - 1];
                 items[j - 1] = temp;
+            } else {
+                break;
             }
         }
     }
