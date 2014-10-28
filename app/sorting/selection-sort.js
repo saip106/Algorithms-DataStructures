@@ -1,5 +1,7 @@
 'user strict';
 
+var swap = require('../common/swap');
+
 function sort (items) {
     for (var i = 0; i < items.length; i++) {
         var minIndex = i;
@@ -9,9 +11,7 @@ function sort (items) {
             }
         }
         if (minIndex !== i) {
-            var temp = items[i];
-            items[i] = items[minIndex];
-            items[minIndex] = temp;
+            swap(items, i, minIndex);
         }
     }
     return items;
