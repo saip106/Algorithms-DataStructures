@@ -2,11 +2,16 @@
 
 var swap = require('../common/swap');
 
-function sort (items) {
-    for (var i = 0; i < items.length; i++) {
-        for (var j = i; j > 0; j--) {
-            if (items[j] < items[j - 1]) {
-                swap(items, j - 1, j);
+function sort (items, step) {
+
+    if (typeof step === 'undefined' | step < 1) {
+        step = 1;
+    }
+
+    for (var i = 0; i < items.length; i = i + step) {
+        for (var j = i; j > 0; j = j - step) {
+            if (items[j] < items[j - step]) {
+                swap(items, j - step, j);
             } else {
                 break;
             }
