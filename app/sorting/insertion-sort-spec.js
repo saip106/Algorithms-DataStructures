@@ -23,4 +23,13 @@ describe('Insertion Sort', function () {
 
     });
 
+    describe('when sorting an array or letters', function () {
+
+        it('should return and fully sorted array', function () {
+            var input = ['m','e','r','g','e','s','o','r','t','e','x','a','m','p','l','e'];
+            insertionSort.sort(input);
+            assert.deepEqual(input, ['a','e','e','e','e','g','l','m','m','o','p','r','r','s','t','x']);
+        });
+
+    });
 });
