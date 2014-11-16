@@ -58,6 +58,26 @@ describe('Linked List', function () {
             assert.equal(third.value, 666);
             assert.equal(linkedList.length, 4);
         });
+    });
+
+    describe('when reversing a linked list', function () {
+
+        it('should arrange the elements in the reverse order', function () {
+            var linkedList = new LinkedList();
+            linkedList.add(1);
+            linkedList.add(2);
+            linkedList.add(3);
+
+            linkedList.reverse();
+
+            var first = linkedList.head;
+            var second = first.next;
+            var third = second.next;
+
+            assert.equal(first.value, 3);
+            assert.equal(second.value, 2);
+            assert.equal(third.value, 1);
+        });
 
     });
 });

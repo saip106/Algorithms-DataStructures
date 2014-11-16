@@ -47,4 +47,21 @@ LinkedList.prototype.insert = function (value, index) {
     this.length++;
 };
 
+LinkedList.prototype.reverse = function () {
+    if (this.length === 0 || this.length === 1) {
+        return;
+    }
+
+    var previous = this.head, current = this.head.next;
+    this.head.next = null;
+    while(current.next !== null) {
+        previous = current;
+        current = current.next;
+
+        current.next = previous;
+
+    }
+    this.head = current;
+};
+
 module.exports = LinkedList;
