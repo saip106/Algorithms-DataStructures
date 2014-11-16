@@ -10,7 +10,6 @@ describe('Graph', function () {
         it('should create a graph of n vertices', function () {
             var graph = new Graph(2);
             assert.ok(graph);
-            assert.
         });
 
 
