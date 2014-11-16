@@ -40,6 +40,14 @@ describe('Linked List', function () {
         assert.equal(result, '1,2');
     });
 
+    it('should print the values of all elements in reverse order', function () {
+        var linkedList = new LinkedList();
+        linkedList.add(1);
+        linkedList.add(2);
+        var result = linkedList.reversePrint();
+        assert.equal(result, '2,1');
+    });
+
     describe('when manipulating a linked list with multiple elements', function () {
 
         var linkedList;

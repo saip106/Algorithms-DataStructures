@@ -66,13 +66,20 @@ LinkedList.prototype.reverse = function () {
 LinkedList.prototype.print = function () {
     var current = this.head, result = '';
     while(current !== null) {
-        result = internalPrint(current, result);
+        result += (result === '' ? '' : ',') + current.value;
         current = current.next;
     }
     return result;
 };
 
+LinkedList.prototype.reversePrint = function () {
+    return internalPrint(this.head, '');
+};
+
 function internalPrint(node, printText) {
+    if (node.next !== null) {
+        printText = internalPrint(node.next, printText);
+    }
     return printText + (printText === '' ? '' : ',') + node.value;
 }
 
