@@ -32,6 +32,14 @@ describe('Linked List', function () {
         assert.equal(second.next, null);
     });
 
+    it('should print the values of all elements', function () {
+        var linkedList = new LinkedList();
+        linkedList.add(1);
+        linkedList.add(2);
+        var result = linkedList.print();
+        assert.equal(result, '1,2');
+    });
+
     describe('when manipulating a linked list with multiple elements', function () {
 
         var linkedList;

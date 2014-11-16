@@ -63,4 +63,17 @@ LinkedList.prototype.reverse = function () {
     this.head = previous;
 };
 
+LinkedList.prototype.print = function () {
+    var current = this.head, result = '';
+    while(current !== null) {
+        result = internalPrint(current, result);
+        current = current.next;
+    }
+    return result;
+};
+
+function internalPrint(node, printText) {
+    return printText + (printText === '' ? '' : ',') + node.value;
+}
+
 module.exports = LinkedList;
