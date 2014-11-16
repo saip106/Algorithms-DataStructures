@@ -52,16 +52,15 @@ LinkedList.prototype.reverse = function () {
         return;
     }
 
-    var previous = this.head, current = this.head.next;
-    this.head.next = null;
-    while(current.next !== null) {
-        previous = current;
-        current = current.next;
-
+    var previous = null, current = this.head, next;
+    while(current !== null) {
+        next = current.next;
         current.next = previous;
 
+        previous = current;
+        current = next;
     }
-    this.head = current;
+    this.head = previous;
 };
 
 module.exports = LinkedList;
