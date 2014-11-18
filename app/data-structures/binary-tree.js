@@ -1,7 +1,11 @@
 'use strict';
 
-function BinaryTree() {
-    this._root = null;
+function BinaryTree(root) {
+    if (root) {
+        this._root = root;
+    } else {
+        this._root = null;
+    }
 }
 
 BinaryTree.prototype.root = function () {

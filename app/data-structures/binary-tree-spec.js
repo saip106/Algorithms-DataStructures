@@ -60,7 +60,21 @@ describe('Binary Tree', function () {
     describe('when checking a binary tree that is not a BST', function () {
 
         it('should return false', function () {
+            var binaryTree = new BinaryTree({
+                left: {
+                    left: null,
+                    value: 6,
+                    right: null
+                },
+                value: 5,
+                right: {
+                    left: null,
+                    value: 8,
+                    right: null
+                }
+            });
 
+            assert.equal(binaryTree.isBinarySearchTree(), false);
         });
 
     });
