@@ -32,6 +32,14 @@ BinaryTree.prototype.add = function (value) {
 
 };
 
+BinaryTree.prototype.count = function () {
+    var _count = 0;
+    this.traverse(function (node) {
+        _count++;
+    });
+    return _count;
+};
+
 function addTo(node, value) {
     if (node === null) {
         node = createNewNode(value);
@@ -41,6 +49,26 @@ function addTo(node, value) {
         addTo(node.right, value);
     }
 }
+
+BinaryTree.prototype.traverse = function(processNode) {
+    function touch(node) {
+        if (node) {
+            //node first
+            processNode.call(this, node);
+
+            //then left node
+            if (node.left) {
+                touch(node.left);
+            }
+
+            //then right node
+            if (node.right) {
+                touch(node.right);
+            }
+        }
+    }
+    touch(this._root);
+};
 
 function createNewNode(value) {
     return {
