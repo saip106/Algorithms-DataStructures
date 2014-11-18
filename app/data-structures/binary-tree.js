@@ -6,7 +6,7 @@ function BinaryTree() {
 
 BinaryTree.prototype.root = function () {
     return this._root;
-}
+};
 
 BinaryTree.prototype.add = function (value) {
     if (this._root === null) {
@@ -29,28 +29,17 @@ BinaryTree.prototype.add = function (value) {
             }
         }
     }
-
 };
 
 BinaryTree.prototype.count = function () {
     var _count = 0;
-    this.traverse(function (node) {
+    this.breadthFirstTraverse(function (node) {
         _count++;
     });
     return _count;
 };
 
-function addTo(node, value) {
-    if (node === null) {
-        node = createNewNode(value);
-    } else if (value <= node.value) {
-        addTo(node.left, value);
-    } else {
-        addTo(node.right, value);
-    }
-}
-
-BinaryTree.prototype.traverse = function(processNode) {
+BinaryTree.prototype.breadthFirstTraverse = function(processNode) {
     function touch(node) {
         if (node) {
             //node first
@@ -69,6 +58,19 @@ BinaryTree.prototype.traverse = function(processNode) {
     }
     touch(this._root);
 };
+
+BinaryTree.prototype.isBinarySearchTree = function () {
+    return internalIsBST(this._root, Number.MIN_VALUE, Number.MAX_VALUE);
+};
+
+function internalIsBST(node, min, max) {
+    if (node === null) {
+        return true;
+    }
+    return min <= node.value && max > node.value &&
+        internalIsBST(node.left, min, node.value) &&
+        internalIsBST(node.right, node.value, max);
+}
 
 function createNewNode(value) {
     return {

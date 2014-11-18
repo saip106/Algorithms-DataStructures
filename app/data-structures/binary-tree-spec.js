@@ -40,8 +40,30 @@ describe('Binary Tree', function () {
 
             assert.equal(binaryTree.count(), 5);
         });
+    });
 
+    describe('when checking a binary tree that is a BST', function () {
+
+        it('should return true', function () {
+            var binaryTree = new BinaryTree();
+            binaryTree.add(5);
+            binaryTree.add(2);
+            binaryTree.add(8);
+            binaryTree.add(3);
+            binaryTree.add(7);
+
+            assert.equal(binaryTree.isBinarySearchTree(), true);
+        });
 
     });
+
+    describe('when checking a binary tree that is not a BST', function () {
+
+        it('should return false', function () {
+
+        });
+
+    });
+
 
 });
